@@ -1,0 +1,13 @@
+!SESSION 2021-01-12 18:56:33.311 -----------------------------------------------
+eclipse.buildId=1.2.2
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_PT
+Framework arguments:  -perspective com.infineon.aurix.buildmanager.perspective.c -perspective com.infineon.aurix.buildmanager.perspective.c
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -perspective com.infineon.aurix.buildmanager.perspective.c -data C:\Users\Rui\Desktop\aurix-modules -perspective com.infineon.aurix.buildmanager.perspective.c
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-12 18:57:26.069
+!MESSAGE Indexed 'lockstep-driver' (0 sources, 0 headers) in 0,002 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-01-12 18:57:40.090
+!MESSAGE Indexed 'lockstep-driver' (126 sources, 310 headers) in 13 sec: 74 033 declarations; 118 910 references; 3 unresolved inclusions; 872 syntax errors; 2 377 unresolved names (1,2%)
