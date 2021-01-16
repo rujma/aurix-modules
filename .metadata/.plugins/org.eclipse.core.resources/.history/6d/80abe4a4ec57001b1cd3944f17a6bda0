@@ -1,0 +1,22 @@
+/*
+ * IfxLockstep.h
+ *
+ *  Created on: 16/01/2021
+ *      Author: Rui
+ */
+
+#ifndef IFXLOCKSTEP_H_
+#define IFXLOCKSTEP_H_
+
+
+typedef enum{
+    IfxLockstep_State_Initialized,
+    IfxLockstep_State_Not_Initialized
+}IfxLockstep_State;
+
+IfxLockstep_State IfxLockstep_getLockstepState();
+
+
+
+
+#endif /* IFXLOCKSTEP_H_ */

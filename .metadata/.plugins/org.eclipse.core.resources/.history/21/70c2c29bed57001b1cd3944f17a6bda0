@@ -1,0 +1,19 @@
+/*
+ * IfxLockstep.c
+ *
+ *  Created on: 16/01/2021
+ *      Author: Rui
+ */
+
+#include "IfxCpu.h"
+#include "IfxLockstep.h"
+
+
+IfxLockstep_State IfxLockstep_getLockstepState(IfxLockstep_CheckerNumber ProcessorNumber){
+
+}
+
+IfxLockstep_Trigger IfxLockstep_testCheckerCore(IfxLockstep_CheckerNumber ProcessorNumber){
+
+}
+

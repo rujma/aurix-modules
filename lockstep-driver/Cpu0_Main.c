@@ -29,6 +29,7 @@
 #include "IfxScuWdt.h"
 #include "IfxPort.h"
 #include "Bsp.h"
+#include "CustomDD/IfxLockstep.h"
 
 #define LED &MODULE_P33,0
 #define WAIT_TIME   500
@@ -52,7 +53,9 @@ int core0_main(void)
     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
     IfxPort_setPinHigh(LED);
 
-    if(SCU_LCLCON0.B.LS == 0)
+    IfxLockstep_Status status = IfxLockstep_getLockstepStatus(0x00);
+
+    if(status == IfxLockstep_Status_SingleCore)
     {
         while(1)
         {

@@ -1,0 +1,29 @@
+/*
+ * IfxLockstep.h
+ *
+ *  Created on: 16/01/2021
+ *      Author: Rui
+ */
+
+#ifndef IFXLOCKSTEP_H_
+#define IFXLOCKSTEP_H_
+
+#include "Platform_Types.h"
+
+typedef uint8 IfxLockstep_CheckerNumber;
+
+typedef enum{
+    IfxLockstep_State_Initialized,
+    IfxLockstep_State_Not_Initialized
+}IfxLockstep_State;
+
+typedef enum{
+    IfxLockstep_Error = 0x08,
+    IfxLockstep_Ok = 0x00
+}IfxLockstep_State;
+
+IfxLockstep_State IfxLockstep_getLockstepState(IfxLockstep_CheckerNumber ProcessorNumber);
+
+IfxLockstep_State IfxLockstep_testCheckerCore(IfxLockstep_CheckerNumber ProcessorNumber);
+
+#endif /* IFXLOCKSTEP_H_ */

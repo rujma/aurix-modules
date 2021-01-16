@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;lockstep-driver/IfxLockstep&apos; to &apos;IfxLockstep.h&apos;" description="Rename resource &apos;IfxLockstep&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="IfxLockstep" name="IfxLockstep.h" stamp="1610795328846" updateReferences="true"/>
+</session>

@@ -11,3 +11,19 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -perspective com.infin
 
 !ENTRY org.eclipse.cdt.core 1 0 2021-01-12 18:57:40.090
 !MESSAGE Indexed 'lockstep-driver' (126 sources, 310 headers) in 13 sec: 74 033 declarations; 118 910 references; 3 unresolved inclusions; 872 syntax errors; 2 377 unresolved names (1,2%)
+!SESSION 2021-01-15 08:37:19.323 -----------------------------------------------
+eclipse.buildId=1.2.2
+java.version=11.0.2
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_PT
+Framework arguments:  -perspective com.infineon.aurix.buildmanager.perspective.c
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -perspective com.infineon.aurix.buildmanager.perspective.c
+
+!ENTRY com.tasking.debug.cdt.core 4 150 2021-01-15 08:51:03.744
+!MESSAGE Error creating session 
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2021-01-15 08:51:03.744
+!MESSAGE The debug instrument IO could not be initialized.
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2021-01-15 08:51:03.744
+!MESSAGE The GDI debug instrument provided the following error message.
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2021-01-15 08:51:03.744
+!MESSAGE Device is locked
