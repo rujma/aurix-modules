@@ -1,4 +1,4 @@
-12:03:40 **** Clean-only build of configuration Debug for project lockstep-driver ****
+17:14:00 **** Clean-only build of configuration Debug for project lockstep-driver ****
 make --output-sync -j8 clean 
 find . ! -name "*.mk" ! -name "makefile" ! -name "." -type f -delete 
  

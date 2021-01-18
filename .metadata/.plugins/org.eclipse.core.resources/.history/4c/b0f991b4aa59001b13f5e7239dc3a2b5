@@ -1,0 +1,63 @@
+/*
+ * IfxLockstep.c
+ *
+ *  Created on: 16/01/2021
+ *      Author: Rui
+ */
+
+#include "IfxCpu.h"
+#include "IfxSmu.h"
+#include "IfxLockstep.h"
+
+void IfxLockstep_SMU_Init(void)
+{
+    /* Enable the SMU register configuration by setting the CFGLCK field of the SMU_KEYS register to 0xBC */
+    IfxSmu_unlock(&MODULE_SMU);
+    /* Clear Safety ENDINIT protection for modification of the configuration registers */
+    IfxScuWdt_clearSafetyEndinit(IfxScuWdt_getSafetyWatchdogPasswordInline());
+    /* Set the IGCS0 field of SMU_AGC register to 1 to trigger SMU Interrupt Request 0 */
+    MODULE_SMU.AGC.B.IGCS0 = 1;
+    /* Set Safety ENDINIT protection after modification of the configuration registers */
+    IfxScuWdt_setSafetyEndinit(IfxScuWdt_getSafetyWatchdogPasswordInline());
+
+    IfxSmu_setAlarmConfig(&MODULE_SMU, IfxSmu_Alarm_Cpu0LockstepComparatorError, IfxSmu_AlarmConfig_interruptSet0);
+
+    IfxSmu_lock(&MODULE_SMU);           /* After configuration, set a temporary lock of the SMU configuration   */
+
+    IfxSrc_init(&SRC_SMU0, IfxSrc_Tos_cpu0, 10);
+    IfxSrc_enable(&SRC_SMU0);
+
+    IfxSmu_start(&MODULE_SMU);
+
+}
+
+IfxLockstep_Enable IfxLockstep_getLockstepEnabled(IfxLockstep_CheckerNumber ProcessorNumber){
+
+    IfxLockstep_Enable enabled = IfxLockstep_State_Not_Enabled;
+
+    if(SCU_LCLCON0.B.LSEN == 1)
+    {
+        enabled = IfxLockstep_State_Enabled;
+    }
+
+    return (IfxLockstep_Enable)enabled;
+}
+
+IfxLockstep_Status IfxLockstep_getLockstepStatus(IfxLockstep_CheckerNumber ProcessorNumber){
+
+    IfxLockstep_Status status = IfxLockstep_Status_SingleCore;
+
+    if(SCU_LCLCON0.B.LS == 1)
+    {
+        status = IfxLockstep_Status_Lockstep;
+    }
+
+    return (IfxLockstep_Status)status;
+}
+
+
+void IfxLockstep_testCheckerCore(IfxLockstep_CheckerNumber ProcessorNumber){
+
+    SCU_LCLTEST.U = (1 << ProcessorNumber) & 0x03u;
+}
+

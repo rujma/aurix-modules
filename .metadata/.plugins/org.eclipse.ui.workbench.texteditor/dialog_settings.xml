@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="lock"/>
+		<item key="selection" value="Stop"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="Lock"/>
-			<item value="LCLCON"/>
-			<item value="uint8_t"/>
+			<item value="stop"/>
+			<item value="-&gt;AGC"/>
+			<item value=".AGC"/>
+			<item value="AGC"/>
+			<item value="IGCS0~~~~"/>
+			<item value="IGCS0~~~"/>
+			<item value="IGCS0~~"/>
+			<item value="IGCS0~"/>
+			<item value="IGCS0"/>
+			<item value="IGCS0 "/>
+			<item value="IfxScuWdt_clearSafetyEndinit"/>
+			<item value="trap"/>
+			<item value="Interr"/>
+			<item value="IRQ"/>
+			<item value="tRAP"/>
 		</list>
 		<list key="replacehistory">
 		</list>

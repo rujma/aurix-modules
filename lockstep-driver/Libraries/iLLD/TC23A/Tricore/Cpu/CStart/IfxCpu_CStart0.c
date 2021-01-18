@@ -221,13 +221,13 @@ void _START(void)
  */
 const uint32 BootModeHeader_0[] = {
     0x00000000u,                 /* STADBM first user code at 0x8000 0020h */
-    0xb3590070u,                 /* BMI = 0070h BMHDID = B359h */
+    0xb3590170u,                 /* BMI = 0070h BMHDID = B359h */
     0x00000000u,                 /* ChkStart */
     0x00000000u,                 /* ChkEnd */
     0x00000000u,                 /* CRCrange */
     0x00000000u,                 /* !CRCrange */
-    0x791eb864u,                 /* CRChead */
-    0x86e1479bu                  /* !CRChead */
+    0x964C0E85u,                 /* CRChead */
+    0x69B3F17Au                  /* !CRChead */
 };
 
 /*reset the sections defined above */

@@ -26,17 +26,33 @@
  *********************************************************************************************************************/
 #include "Ifx_Types.h"
 #include "IfxCpu.h"
+#include "IfxSmu.h"
 #include "IfxScuWdt.h"
 #include "IfxPort.h"
 #include "Bsp.h"
 #include "CustomDD/IfxLockstep.h"
 
-#define LED &MODULE_P33,0
+#define LED     &MODULE_P33,0
+#define LED1    &MODULE_P33,1
+#define LED2    &MODULE_P33,2
 #define WAIT_TIME   500
 
 IfxCpu_syncEvent g_cpuSyncEvent = 0;
 
-int core0_main(void)
+///* Macro to define Interrupt Service Routine */
+//IFX_INTERRUPT(ISR_SMU_Alarm, 0, 10);
+//
+///* Interrupt Service Routine of SMU, gets triggered when the SMU Software Alarm 0 is triggered */
+//void ISR_SMU_Alarm(void)
+//{
+//    /* Command to enable the alarm clearing. This has to be done before clearing the status flag */
+//    //IfxSmu_cmd(&MODULE_SMU, IfxSmu_Cmd_enableClearAlarmStatus, 0);
+//    //IfxSmu_clearAlarm(&MODULE_SMU, IfxSmu_Alarm_Cpu0LockstepComparatorError);    /* Clear alarm status flag */
+//
+//    __asm("NOP");
+//}
+
+int core0_main (void)
 {
     IfxCpu_enableInterrupts();
     
@@ -53,20 +69,33 @@ int core0_main(void)
     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
     IfxPort_setPinHigh(LED);
 
+    IfxPort_setPinModeOutput(LED1, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinHigh(LED1);
+
+    IfxPort_setPinModeOutput(LED2, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinLow(LED2);
+
+    IfxLockstep_SMU_Init();
+
     IfxLockstep_Status status = IfxLockstep_getLockstepStatus(0x00);
 
-    if(status == IfxLockstep_Status_SingleCore)
+    if (status == IfxLockstep_Status_SingleCore)
     {
-        while(1)
+        while (1)
         {
             __asm("NOP");
         }
     }
 
-    while(1)
+    IfxLockstep_testCheckerCore(0x00);
+
+    while (1)
     {
         IfxPort_togglePin(LED);
+        IfxPort_togglePin(LED1);
         wait(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, WAIT_TIME));
+        IfxLockstep_testCheckerCore(0x00);
+        wait(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, WAIT_TIME*2));
     }
     return (1);
 }

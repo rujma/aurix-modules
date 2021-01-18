@@ -34,6 +34,7 @@ Libraries/iLLD/TC23A/Tricore/Cpu/Std \
 Libraries/iLLD/TC23A/Tricore/Cpu/Trap \
 Libraries/iLLD/TC23A/Tricore/Port/Std \
 Libraries/iLLD/TC23A/Tricore/Scu/Std \
+Libraries/iLLD/TC23A/Tricore/Smu/Std \
 Libraries/iLLD/TC23A/Tricore/Src/Std \
 Libraries/iLLD/TC23A/Tricore/Stm/Std \
 Libraries/iLLD/TC23A/Tricore/_Impl \

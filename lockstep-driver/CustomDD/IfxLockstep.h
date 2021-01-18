@@ -10,7 +10,7 @@
 
 #include "Platform_Types.h"
 
-typedef uint8 IfxLockstep_CheckerNumber;
+typedef sint16 IfxLockstep_CheckerNumber;
 
 typedef enum{
     IfxLockstep_State_Enabled = 0x01u,
@@ -28,11 +28,12 @@ typedef enum{
 }IfxLockstep_Trigger;
 
 
+void IfxLockstep_SMU_Init(void);
 
 IfxLockstep_Enable IfxLockstep_getLockstepEnabled(IfxLockstep_CheckerNumber ProcessorNumber);
 
 IfxLockstep_Status IfxLockstep_getLockstepStatus(IfxLockstep_CheckerNumber ProcessorNumber);
 
-IfxLockstep_Trigger IfxLockstep_testCheckerCore(IfxLockstep_CheckerNumber ProcessorNumber);
+void IfxLockstep_testCheckerCore(IfxLockstep_CheckerNumber ProcessorNumber);
 
 #endif /* IFXLOCKSTEP_H_ */
